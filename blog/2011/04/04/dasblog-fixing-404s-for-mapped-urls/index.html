@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>DasBlog: Fixing 404’s for mapped urls - gravitypad.com</title>
+  <meta name="author" content="paul kearney">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="openid.server" href="http://www.myopenid.com/server">
+  <link rel="openid.delegate" href="http://paulkearney.myopenid.com/">
+
+  
+    
+  
+  <meta name="description" content="Two things have been bugging me since I migrated this blog over to dasBlog: I started getting a bunch of 404 errors for urls that are mapped to &hellip;">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://gravitypad.github.com/blog/2011/04/04/dasblog-fixing-404s-for-mapped-urls/">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="gravitypad.com" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="gravitypad.com" />
+  <meta name="og:title" content="DasBlog: Fixing 404’s for mapped urls" />
+  <meta name="og:description" content="Two things have been bugging me since I migrated this blog over to dasBlog: I started getting a bunch of 404 errors for urls that are mapped to &hellip;" />
+  <meta name="og:url" content="http://gravitypad.github.com/blog/2011/04/04/dasblog-fixing-404s-for-mapped-urls/"/>
+  <meta name="url" content="http://gravitypad.github.com/blog/2011/04/04/dasblog-fixing-404s-for-mapped-urls/">
+  
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">gravitypad.com</a>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:gravitypad.github.com" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">DasBlog: Fixing 404’s for Mapped Urls</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-04T00:00:00-07:00" pubdate data-updated="true">Apr 4<span>th</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Two things have been bugging me since I migrated this blog over to dasBlog: I started getting a bunch of 404 errors for urls that are mapped to dasBlog handlers, and getting a better html editor wasn’t working.</p>
+
+<h4>404’s for things like deleteitem.aspx, blogger.aspx, etc.</h4>
+
+<p>This fix was simple. I am running this site on Windows Server 2008 R2, and the application pool was in Integrated Mode. Switching to Classic Mode got all of the handler mappings working. I’ll need to dig around in the web.config to get the handlers migrated to IIS7.5 syntax so I can go back to Integrated Mode. This fix also got comments working.</p>
+
+<h4>Setting TinyMCE as the editor</h4>
+
+<p>I had downloaded the TinyMCE editor adapter from John Forsythe, but it never worked. There seemed to be people with similar issues, but no resolution. This was even worse for me, because since I was getting 404’s for blogger.aspx, I couldn’t use Windows Live Writer either. I resorted to handcrafting my html. Yuck.
+This one was simple to fix, but I didn’t figure it out until I installed the wonderful ELMAH. Looking at the Elmah logs showed this error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tinymce\jscripts\tiny_mce\tiny_mce_gzip.aspx(5): error CS0246: The type or namespace name 'ICSharpCode' could not be found (are you missing a using directive or an assembly reference?)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the installation instructions, it said that you don’t need to install the ICSharpCode.SharpZipLib.dll, because it’s the same one installed with dasBlog. But the version of dasBlog I was running didn’t have that assembly. A quick search and download, and voilla – TinyMCE is working!</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-04T00:00:00-07:00" pubdate data-updated="true">Apr 4<span>th</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <a class="pull-left" href="/blog/2011/03/31/entity-framework-use-properties-for-your-entities/" title="Previous Post: Entity Framework: use properties for your entities">&laquo; Entity Framework: use properties for your entities</a>
+    
+    
+      <a class="pull-right" href="/blog/2011/04/29/principles-vs-methods-in-software-development/" title="Next Post: Principles vs. Methods in Software Development">Principles vs. Methods in Software Development &raquo;</a>
+    
+  </footer>
+
+</div>
+
+
+      </article>
+    </div>
+    <div class="container">	
+      
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2013/01/28/moving-from-dasblog-to-octopress-and-jekyll/">Moving from dasBlog to Octopress/Jekyll</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/01/26/hello-world/">hello world</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2012/06/04/powershell-authorizationmanager-check-failed/">Powershell AuthorizationManager check failed</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2011/12/02/waze/">waze</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2011/11/30/remember-controller-classes-need-to-be-public/">Remember, controller classes need to be public</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+
+  </div>
+  <div class="span2">
+    <h2>found on</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/">gravitypad.com</a>
+  - Copyright &copy; 2013 - paul kearney
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+    <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span>
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/javascripts/custom.js" type="text/javascript"></script>
+
+
+
+
+
+</body>
+</html>

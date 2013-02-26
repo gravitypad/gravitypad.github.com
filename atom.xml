@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[gravitypad.com]]></title>
+  <link href="http://gravitypad.github.com/atom.xml" rel="self"/>
+  <link href="http://gravitypad.github.com/"/>
+  <updated>2013-02-25T16:38:47-08:00</updated>
+  <id>http://gravitypad.github.com/</id>
+  <author>
+    <name><![CDATA[paul kearney]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Moving from dasBlog to Octopress/Jekyll]]></title>
+    <link href="http://gravitypad.github.com/blog/2013/01/28/moving-from-dasblog-to-octopress-and-jekyll/"/>
+    <updated>2013-01-28T07:39:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2013/01/28/moving-from-dasblog-to-octopress-and-jekyll</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve decided to move this blog away from dasBlog and over to another platform, <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is a static site generator - you create your posts as markdown files, run a command, and it generates all of the files for your blog as static html files.</p>
+
+<p>Why move away from something more robust? Well, I&#8217;m not convinced it was more robust, and it added a lot of complexity to hosting it. Here&#8217;s my reasoning:</p>
+
+<ul>
+<li>dasBlog requires a Windows server. I could host it somewhere pretty cheap, but with as much as I&#8217;ve written on this blog (more on that later), I really can&#8217;t justify spending money on hosting if I could do it for free.</li>
+<li>Jekyll requires no databases, no write permissions to the server, no logins&#8230; It&#8217;s just a static site. Content is written on my laptop, static files are generated and then pushed to the server.</li>
+<li>Jekyll is the engine behind GitHub Pages. That&#8217;s pretty cool. And you can host your Jekyll blog on GitHub pages for free.</li>
+<li>I considered other blogging platforms, like WordPress, Movable Type, BlogEngine.Net, etc. They all have a host of great features. But in the end I don&#8217;t really need them. Minimal Viable Blog.</li>
+</ul>
+
+
+<p>Another key reason for me personally is it allows me to learn some new technology that I&#8217;m unfamiliar with. Getting to look under the covers at the Ruby code driving Jekyll and making modificaitons is a fun learning experience.</p>
+
+<!--more-->
+
+
+<p>I ended up using <a href="http://octopress.org">Octopress</a>, which sits on top of Jekyll. Octopress lets you quickly and easily get up and running. Simply clone the repo, install a theme and you are up and running.</p>
+
+<p>Thankfully I don&#8217;t have a lot of posts on my dasBlog, so importing them by hand was almost easier than trying to figure out an automated way to do it. I did find a <a href="http://doingthedishes.com/2011/04/14/moving-to-jekyll.html">post</a> by Derek Morrison where he shared a ruby script to import BlogML, so it is possible to automate it.</p>
+
+<p>So far so good. I&#8217;m enjoying the minimalist approach. I&#8217;ve been working on removing complexity from all areas of my life. Writing blog posts in markdown, generating static files and getting them hosted by GitHub for free all align with my goal of simplification.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[hello world]]></title>
+    <link href="http://gravitypad.github.com/blog/2013/01/26/hello-world/"/>
+    <updated>2013-01-26T21:47:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2013/01/26/hello-world</id>
+    <content type="html"><![CDATA[<p>Every new blog needs one.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Powershell AuthorizationManager check failed]]></title>
+    <link href="http://gravitypad.github.com/blog/2012/06/04/powershell-authorizationmanager-check-failed/"/>
+    <updated>2012-06-04T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2012/06/04/powershell-authorizationmanager-check-failed</id>
+    <content type="html"><![CDATA[<p>While debugging some Powershell scripts today, I started getting an error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>AuthorizationManager check failed.
+</span><span class='line'>At C:\Users\pkearne\setupPLT.ps1:6 char:14
+</span><span class='line'>+ ./logging.ps1 &lt;&lt;&lt;&lt;
+</span><span class='line'>    + CategoryInfo      : NotSpecified: (:) [], PSSecurityException
+</span><span class='line'>    + FullyQualifiedErrorId : RuntimeException</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
+
+
+<p>After some web searching, there seems to be two primary reasons this happens:</p>
+
+<ul>
+<li>An empty Powershell profile script</li>
+<li>WMI service not running</li>
+</ul>
+
+
+<p>Neither of these cases was true for me. However, the first one pointed me in the right direction. Somehow a script I was calling out to (logging.ps1) had it&#8217;s contents removed. Had the file been deleted, the error would have been that the cmdlet, function etc was not recognized. But having the file present but empty gave the misleading error &#8220;AuthorizationManager check failed&#8221;.</p>
+
+<p>So, if you are getting this error and everything else looks correct, look and see if something similar is causing your problem.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[waze]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/12/02/waze/"/>
+    <updated>2011-12-02T00:00:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/12/02/waze</id>
+    <content type="html"><![CDATA[<p>A few days back on a DL I frequent, someone asked for a better traffic mobile app. The thread piqued my interest, but I really thought it would be a rehash of all the known apps out there.</p>
+
+<p>You see, I commute 25.6 miles to work. Each way. And it’s right through the middle of Seattle traffic. In 2010 Seattle ranked #10 in the nation for the worst congestion. On a good day during commute hours it will take me about 1:15 to get to work. On a bad day it can be more like 1:45. As you can see, I spend a lot of time in the car. <em>(I’ve also experimented with the Connector, Microsoft’s employee bus service, carpooling, and the Metro bus. There’s a few reasons I choose to still drive, but that’s not important right now).</em></p>
+
+<p>There were a few replies to the thread suggesting traffic apps: Google Maps, the Washington DOT app, bla bla bla. The problem is they are all terrible. Horrible. They show you traffic, but they don’t help you make any intelligent decisions about which route to take (I have three routes I can take). And they never seem to be accurate enough. There’s plenty of times I’ve been stopped in traffic while Google maps happily shows the road I am on as yellow (meaning slow, but not stopped).</p>
+
+<p>One app was mentioned that I had not heard of before: <a href="http://www.waze.com">Waze</a>. The idea behind it is pretty brilliant – crowd sourced traffic. They are not the first to do it, but they’ve built a pretty cool app around the concept.</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/waze/1.png" alt="" /></p>
+
+<!--more-->
+
+
+<p>The way it works is simple – start up the app and start driving. Using your phone’s GPS, it starts uploading your position and speed to other users around you. And you get the benefit of other users’ data as well. It magically builds the traffic map based on everyone’s cumulative data.</p>
+
+<p>You can also report incidents, police activity, or unsafe conditions. Other drivers will get alerted on their devices. But Waze turns this into a bit of a game. Since anyone can report an incident, how do you know that it’s accurate? Well, as other users approach the reported location, a little popup shows up. Other users can confirm the incident or indicate it’s not there.</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/waze/2.png" alt="" /></p>
+
+<p>You build up reputation by driving more miles, reporting incidents (do this safely, preferably when not driving – but it’s pretty quick and easy to do so by selecting one or two buttons – no typing needed), starting a group of fellow Wazers, or reporting map inaccuracies.</p>
+
+<p>It also figures out where you like to go and how you like to get there. Since I can drive any of three routes to get to work, it quickly shows me my three alternatives and estimated travel times for each. I can quickly select the fastest route, using real time data, without having to rely on broadly applied map colors on which to based my decision. In fact, over the last two days using the app, it has saved me about 20 minutes each day. I first opened up another traffic map, selected a route based on my usual criteria, then let Waze calculate the best route. Waze beat me both times.</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/waze/3.png" alt="" /></p>
+
+<p>Another cool feature is that it can provide traffic conditions on streets that aren’t large enough for other apps to cover. For example, the DOT gets its data from sensors embedded in the pavement, but only on streets where it has sensors. Waze can give you information on any street where another user has driven. If there were enough users, you could get up to date traffic information for my very own cul-de-sac.</p>
+
+<p>There seems to be a lot more to the app than what I’ve described. I’ll admit, for now, I still open up another app to confirm Waze’s recommendations. But it’s quickly gaining my trust and confidence every day. It’s available for iPhone, Android, Blackberry and Nokia phones. Check them out at <a href="http://www.waze.com">www.waze.com</a>.</p>
+
+<p>Drive safe.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Remember, controller classes need to be public]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/11/30/remember-controller-classes-need-to-be-public/"/>
+    <updated>2011-11-30T00:00:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/11/30/remember-controller-classes-need-to-be-public</id>
+    <content type="html"><![CDATA[<p>File this one under Duh! I was troubleshooting a routing issue I was having with a portable area in ASP.Net MVC. For some reason I kept getting a 404. The solution was pretty big, so I created two new projects to try and isolate the problem.</p>
+
+<p>I created a new web project and a class library for the portable area. Added my routes to the area, created a new class, renamed the class MyController, wired it all up, and got the same thing.</p>
+
+<p>I installed Glimpse to see what routes were being hit. But Glimpse only works if ASP.Net handles the request, and since it was a 404, I couldn’t see the Glimpse data.</p>
+
+<!--more-->
+
+
+<p>So I installed Phil Haack’s awesome route debugger. The route debugger has a catchall route, so even if the request would result in a 404 it will return you back the debug information. I could see that the route was being hit, but it still 404’ed.</p>
+
+<p>I set breakpoints. I added some logging. Nothing would cause my controller action to get executed.</p>
+
+<p>Then it struck me. Visual Studio by default creates new classes without an access modifier, and when no access modifier is specified, the default is internal. MVC needs controller classes (and the action methods) to be public so they can be constructed via reflection.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">using</span> <span class="nn">System.Web.Mvc</span><span class="p">;</span>
+</span><span class='line'><span class="k">namespace</span> <span class="nn">TestArea.Controllers</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>   <span class="k">public</span> <span class="k">class</span> <span class="nc">MyController</span> <span class="p">:</span> <span class="n">Controller</span>
+</span><span class='line'>   <span class="p">{</span>
+</span><span class='line'>       <span class="k">public</span> <span class="n">ActionResult</span> <span class="nf">Index</span><span class="p">()</span>
+</span><span class='line'>       <span class="p">{</span>
+</span><span class='line'>          <span class="k">return</span> <span class="nf">View</span><span class="p">();</span>
+</span><span class='line'>       <span class="p">}</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The really sad part is I just helped a colleague solve the exact same problem the week before.</p>
+
+<p>I don&#8217;t know why Visual Studio defaults to not putting a access modifier on new classes. I always prefer to be explicit with such things.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VerificationException: Operation could destabilize the runtime]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/05/13/verificationexception-operation-could-destabilize-the-runtime/"/>
+    <updated>2011-05-13T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/05/13/verificationexception-operation-could-destabilize-the-runtime</id>
+    <content type="html"><![CDATA[<p>I came across this exception this morning while playing with RavenDB. A quick search shows several people have seen this exception but not a lot of solutions.</p>
+
+<p>I&#8217;m not sure why, but this exception in my case was related to IntelliTrace. I turned IntelliTrace off and the exception went away. Weird.</p>
+
+<p>BTW - this isn&#8217;t related to RavenDB.   According to <a href="http://blogs.msdn.com/b/jnak/archive/2010/07/22/verificationexception-from-windows-azure-intellitrace.aspx">this post</a>, the issue is a bug in IntelliTrace.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VB6 and .Net Interop Fun]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/05/11/vb6-and-net-interop-fun/"/>
+    <updated>2011-05-11T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/05/11/vb6-and-net-interop-fun</id>
+    <content type="html"><![CDATA[<p> A friend of a friend asked me to help with a project. He is a VB6 developer. Still. But he needed to incorporate a .Net component into the VB6 application in an easy way. So I&#8217;ve been helping him out, building up a .Net control using the Microsoft Interop Toolkit. It&#8217;s a free add-in to Visual Studio that takes away a lot of the complexities in building COM interop components in .Net.</p>
+
+<p>I learned something painfully recently while helping out:</p>
+
+<p>If your .Net control throws an exception, VB6 will report that to you as  an &#8220;out of memory&#8221; error. That&#8217;s it - no details, call stack, or anything else about the actual exception. Misleading and frustrating. Not that I would expect VB6 to give me the call stack from .Net, but &#8220;out of memory&#8221; is not only unhelpful but it is disinformation.</p>
+
+<p>I should have remebered this one. We were getting the &#8220;out of memory&#8221; error in VB6 in design mode and couldn&#8217;t figure out what the problem was. The error popped up immediately when opening the form designer in VB6. After much trouble trying to get VB6 to actually tell us what the problem is (we never got any information out of it, even after enhanced interrogation using WinDbg), it was real simple - we had a bug in a property setter. When the control was instantiated, VB6 was calling the setter, getting the exception, and then barfing with the incredibly unhelpful error message.</p>
+
+<p>My friends will inevitably laugh and make fun of me for playing with VB6 still. That&#8217;s fine. I&#8217;ve found the experience has led me to develop additional skills and learn more about .Net development along the way.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Principles vs. Methods in Software Development]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/04/29/principles-vs-methods-in-software-development/"/>
+    <updated>2011-04-29T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/04/29/principles-vs-methods-in-software-development</id>
+    <content type="html"><![CDATA[<p>I just posted on our Development@msnbc blog some thoughts on Ralph Waldo Emerson&#8217;s quote and it&#8217;s applicability to software development.</p>
+
+<blockquote><p>As to methods there may be a million and then some, but principles are few. The man who grasps principles can successfully select his own methods. The man who tries methods, ignoring principles, is sure to have trouble.</p>
+
+<p>- Ralph Waldo Emerson (1803-1882)</p></blockquote>
+
+<p>Give it a read at <a href="http://development.msnbc.msn.com/_news/2011/04/29/6406331-principles-vs-methods">here</a> and let me know what you think!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[DasBlog: Fixing 404’s for mapped urls]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/04/04/dasblog-fixing-404s-for-mapped-urls/"/>
+    <updated>2011-04-04T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/04/04/dasblog-fixing-404s-for-mapped-urls</id>
+    <content type="html"><![CDATA[<p>Two things have been bugging me since I migrated this blog over to dasBlog: I started getting a bunch of 404 errors for urls that are mapped to dasBlog handlers, and getting a better html editor wasn’t working.</p>
+
+<h4>404’s for things like deleteitem.aspx, blogger.aspx, etc.</h4>
+
+<p>This fix was simple. I am running this site on Windows Server 2008 R2, and the application pool was in Integrated Mode. Switching to Classic Mode got all of the handler mappings working. I’ll need to dig around in the web.config to get the handlers migrated to IIS7.5 syntax so I can go back to Integrated Mode. This fix also got comments working.</p>
+
+<h4>Setting TinyMCE as the editor</h4>
+
+<p>I had downloaded the TinyMCE editor adapter from John Forsythe, but it never worked. There seemed to be people with similar issues, but no resolution. This was even worse for me, because since I was getting 404’s for blogger.aspx, I couldn’t use Windows Live Writer either. I resorted to handcrafting my html. Yuck.
+This one was simple to fix, but I didn’t figure it out until I installed the wonderful ELMAH. Looking at the Elmah logs showed this error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tinymce\jscripts\tiny_mce\tiny_mce_gzip.aspx(5): error CS0246: The type or namespace name 'ICSharpCode' could not be found (are you missing a using directive or an assembly reference?)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the installation instructions, it said that you don’t need to install the ICSharpCode.SharpZipLib.dll, because it’s the same one installed with dasBlog. But the version of dasBlog I was running didn’t have that assembly. A quick search and download, and voilla – TinyMCE is working!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Entity Framework: use properties for your entities]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/03/31/entity-framework-use-properties-for-your-entities/"/>
+    <updated>2011-03-31T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/03/31/entity-framework-use-properties-for-your-entities</id>
+    <content type="html"><![CDATA[<p>I’ve been banging my head against what seemed to be a very simple problem. Using the new Entity Framework 4.1, I created a simple entity class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ElectricityMeasurement</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Kwh</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Volts</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">long</span> <span class="n">Ticks</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I kept getting an error complaining about no key being set for the entity:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Entity</span><span class="p">.</span><span class="n">ModelConfiguration</span><span class="p">.</span><span class="n">ModelValidationException</span> <span class="p">:</span>
+</span><span class='line'><span class="n">One</span> <span class="n">or</span> <span class="n">more</span> <span class="n">validation</span> <span class="n">errors</span> <span class="n">were</span> <span class="n">detected</span> <span class="n">during</span> <span class="n">model</span> <span class="n">generation</span><span class="p">:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Edm</span><span class="p">.</span><span class="n">EdmEntityType</span><span class="p">:</span> <span class="p">:</span> <span class="n">EntityType</span> <span class="err">&#39;</span><span class="n">ElectricityMeasurement</span><span class="err">&#39;</span>
+</span><span class='line'><span class="n">has</span> <span class="n">no</span> <span class="n">key</span> <span class="n">defined</span><span class="p">.</span> <span class="n">Define</span> <span class="n">the</span> <span class="n">key</span> <span class="k">for</span> <span class="k">this</span> <span class="n">EntityType</span><span class="p">.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Edm</span><span class="p">.</span><span class="n">EdmEntitySet</span><span class="p">:</span> <span class="n">EntityType</span><span class="p">:</span> <span class="n">The</span> <span class="n">EntitySet</span> <span class="n">ElectricityMeasurements</span>
+</span><span class='line'><span class="k">is</span> <span class="n">based</span> <span class="n">on</span> <span class="n">type</span> <span class="n">ElectricityMeasurement</span> <span class="n">that</span> <span class="n">has</span> <span class="n">no</span> <span class="n">keys</span> <span class="n">defined</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But Entity Framework has conventions that should pick up the Id as the key? I even added a [Key] attribute to that property with no luck. Then it hit me: Entity Framework works with properties, not variables:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ElectricityMeasurement</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Kwh</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Volts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">long</span> <span class="n">Ticks</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And all is well.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[A thank you from Caleb and the St. Baldrick’s Foundation]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/03/15/a-thank-you-from-caleb-and-the-st-baldricks-foundation/"/>
+    <updated>2011-03-15T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/03/15/a-thank-you-from-caleb-and-the-st-baldricks-foundation</id>
+    <content type="html"><![CDATA[<p>Thank you all again for making my head-shaving event so incredibly successful. At the last minute, &#8220;Phoebe&#8221; donated $50, bringing our total to $11,500&#8211;exactly $4000 more than I had set as a goal! Imagine my surprise when I checked the site tonight and saw that another $250 had come in! And with the matching gifts that will trickle in, St. Baldrick&#8217;s made more than $17,000 from my one silly haircut.</p>
+
+<p>While I&#8217;m sorry to have missed the party at Fado&#8217;s, I&#8217;m glad we did it at home: Phoebe had a ton of fun sitting on my lap and cutting off individual curls to put in a bag. The curls will go out to the fairy garden tomorrow so that the faries can use them for beds.</p>
+
+<p>Thank you all again, and don&#8217;t be too surprised if you hear from me again in a year&#8230;</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/caleb/1.jpg" alt="" /></p>
+
+<p>Cheers, Caleb</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[The fro must go]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/02/24/the-fro-must-go/"/>
+    <updated>2011-02-24T00:00:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/02/24/the-fro-must-go</id>
+    <content type="html"><![CDATA[<p>From my friend Caleb:</p>
+
+<p>As many of you know, my daughter is battling a rare and aggressive form of brain cancer. We’ve been fighting it for 2 years now, and continue to do so. One thing that’s become apparent is that there just hasn’t been enough money put into pediatric cancer research. St. Baldrick’s Foundation is a non-profit foundation that has donated more money to pediatric cancer research than anyone else (except for the government). To date, they’ve raised and granted more than $56 million. The remarkable thing is that they do this by getting people like me to shave their heads—and people like you to be of a generous spirit (you can see where this is going, can’t you?)</p>
+
+<p>While “shaving events” happen year-round, the big events tend to be around St. Patrick’s Day. In Seattle, the event is at Fado Irish Pub, and is 2 weeks from today (march 10th). I just found out yesterday, and have decided to set an ambitious goal&#8211;$7500 in 2 weeks.  If you feel inspired to make a donation, please do so. As you can see from the photo on my page, my hair has become rather unruly, making the change to a shaved head more dramatic. As my wife has been saying, “the ‘fro must go!”, and what better way to get shorn?</p>
+
+<p>Thanks!
+Caleb</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/caleb/2.jpg" alt="" /></p>
+
+<p><a href="http://www.stbaldricks.org/participants/calebthompson">http://www.stbaldricks.org/participants/calebthompson</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[New developer blog]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/02/10/new-developer-blog/"/>
+    <updated>2011-02-10T10:19:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/02/10/new-developer-blog</id>
+    <content type="html"><![CDATA[<p>We just launched a new developer blog over at msnbc.com: Development @ msnbc. We are covering a bunch of different aspects about software development, from technical nitty-gritty on how we build and operate the software that runs our family of websites to philosophical perspectives on the softer side of development.</p>
+
+<p>Head over there and check it out. We have several authors writing there, including John Bennett, Bryan Wheeler and Peter Durham (and yours truly).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Giving Back]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/02/08/giving-back/"/>
+    <updated>2011-02-08T00:00:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/02/08/giving-back</id>
+    <content type="html"><![CDATA[<p>This is a slightly modified version of a post I made at <a href="http://development.msnbc.msn.com">Development@msnbc</a>.</p>
+
+<p>I&#8217;m a big fan of serving my community and supporting non-profit organizations. Serving is in our DNA as humans. We give birthday presents, give rides to the airport, cook a meal for someone in need, give time to mow someone&#8217;s lawn, give our money to causes we believe in. We serve in various capacities in our communities, our churches, or maybe sit on the board of a non-profit organization. We do it because we believe it is the right thing to do. I believe we do it because it is an integral part of our beings.</p>
+
+<p>There&#8217;s so many organizations doing great and wonderful things for our communities and individuals throughout the world. Some of those organizations are large, well funded, and probably have good sized technology organizations to help support them. But there&#8217;s a large number of organizations out there that are small, struggling to figure out how to spend their limited money in the most effective way for their mission.</p>
+
+<p>A few weeks ago I participated in <a href="http://www.seattlegivecamp.org">Seattle GiveCamp</a>. It was a part of a larger GiveCamp weekend happening in 14 cities across the United States. 2011 was the fourth year GiveCamp has been held, and there were more projects built for non-profit organizations this year than had been built in the previous three years combined. In Seattle, we had 50 volunteers working on 22 projects for 20 different local charities. We started at 5PM on Friday night and wrapped up at 5PM Sunday. My co-worker <a href="http://www.jtbennett.com">John Bennett</a> was also signed up for the GiveCamp happening in NYC.</p>
+
+<!--more-->
+
+
+<p>I worked on building a donor management system for two different charities: AtWork! Washington and the Haiti Sustainable Development Foundation. Both charities had been using a series of spreadsheets that were emailed among different users to keep track of their donations and donors. You can imagine the pain of trying to keep that kind of a system straight&#8230;</p>
+
+<p>Being primarily a .Net developer, I&#8217;ll admit I had a little anxiety going into the weekend. What if the team I was working with wanted to use Rails? Or Java? I figured it would be a great learning experience either way.</p>
+
+<p>I ended up coming away having learned several things:
+* There are a lot of developers out there that have a passion for helping non-profits in their free time. This was my first time at an event like this, but many of the volunteers have done stuff like this together previously.
+* The night before our kickoff, Microsoft <a href="http://weblogs.asp.net/scottgu/archive/2011/01/13/announcing-release-of-asp-net-mvc-3-iis-express-sql-ce-4-web-farm-framework-orchard-webmatrix.aspx">released a ton of goodies</a>: ASP.NET MVC 3, SQL Compact Edition 4, NuGet, IIS Express 7.5, WebMatrix, etc. That stuff enabled me to prototype a web based donor system in just a few hours. Awesome stuff!
+* Build vs. Buy: Salesforce.com <a href="http://www.salesforcefoundation.org/nonprofit">provides non-profit organizations 10 user licenses for free</a> and discounts on additional licenses. There is also an <a href="http://code.google.com/p/npsp/">open-source Non-Profit Starter Pack project</a> that applies non-profit centric customizations on top of Salesforce.com. In the end we leveraged this for our solution. Turned out all of our work was already done for us! All we needed to do was some minor customizations and prepare some training materials.
+* Non-profits have technology needs just like businesses do. Every dollar they spend towards that necessary &#8220;stuff&#8221; is a dollar that they cannot put towards fulfilling their mission. The people who run these organizations are extremely grateful for the people who organize and work at events like GiveCamp or dotOrg Weekend. It makes their organizations more effective and able to focus on what really matters to them.
+* Accomplishing stuff in a weekend is great. I love the fast pace and desire to get stuff done!
+* Giving of my time is a very fulfilling act of service.</p>
+
+<p>I don’t need an excuse to serve. While GiveCamp was a great opportunity, I desire to do stuff like this more frequently and without needing a whole weekend and organization around it. Just reaching out to fill I need I see anywhere is all it takes.</p>
+
+<p>Consider giving your skills and expertise to a cause that is near to your heart, or to any organization that has a need. Reach out to your neighbor or the guy you meet at the coffee shop. You really can make a big impact in your community and in the world. It just takes one.</p>
+
+<p>Msnbc.com (my employer) has a Giving Program as one of the benefits for employees. Msnbc.com matches up to $12,000 annually for employee&#8217;s cash donations to eligible organizations. What a great way to get more bang for your buck! If I give $100 to the King County Boy&#8217;s and Girls Club, they actually get $200. Sweet!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[nSosumi: a c# port of a MobileMe scraper]]></title>
+    <link href="http://gravitypad.github.com/blog/2011/01/06/nsosumi-a-c-number-port-of-a-mobileme-scraper/"/>
+    <updated>2011-01-06T00:00:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2011/01/06/nsosumi-a-c-number-port-of-a-mobileme-scraper</id>
+    <content type="html"><![CDATA[<p>This is a C#/.Net port of Sosumi by Tyler Hall. Tyler&#8217;s original PHP project can be found here: <a href="https://github.com/tylerhall/sosumi">https://github.com/tylerhall/sosumi</a></p>
+
+<p>nSosumi will allow you to programmatically retrieve your iOS device&#8217;s current location, send it a message/play a sound, remotely lock or remotely wipe your iOS device. I&#8217;ve tested it with my iPhone 4&#8217;s and an iPad, all running iOS 4.2.</p>
+
+<p>You can find the source here: <a href="http://code.google.com/p/nsosumi">http://code.google.com/p/nsosumi</a>. I&#8217;ll be providing more details soon.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Resolving TFS error TF14087: Cannot undelete X because not all of the deletion is being undeleted]]></title>
+    <link href="http://gravitypad.github.com/blog/2010/09/03/resolving-tfs-error-tf14087-cannot-undelete-x-because-not-all-of-the-deletion-is-being-undeleted/"/>
+    <updated>2010-09-03T10:31:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2010/09/03/resolving-tfs-error-tf14087-cannot-undelete-x-because-not-all-of-the-deletion-is-being-undeleted</id>
+    <content type="html"><![CDATA[<p>At work, we recently encountered this error in TFS when trying to merge from our trunk into a project branch. There&#8217;s <a href="http://stackoverflow.com/search?q=tf14087">some</a> <a href="http://social.msdn.microsoft.com/Forums/en-US/tfsversioncontrol/thread/b1be6b2b-f17a-49d6-ae0e-207ad9b10b6f">information</a> on the <a href="http://blogs.msdn.com/b/mrod/archive/2006/10/10/the-logic-and-reason-behind-error-message-tf14087.aspx">internet</a> about this <a href="http://geekswithblogs.net/svanvliet/archive/2007/01/14/team-foundation-server-merge-woes-tf14087.aspx">error</a>, but none of them directly applied to our issue. Thankfully, one of the benefits of having Microsoft as a parent company is access to TFS engineers.</p>
+
+<p>We got into this situation when someone deleted a folder in the trunk and then re-added a folder with the same name. And then deleted it. And re-added it. When you do this without merging between the delete and adds, TFS gets real confused. It tries to merge the delete and the add (and in our case, the second delete and second add), and because they are all the same name and path, you get TF14087.</p>
+
+<p>The solution (thanks George) was pretty simple:
+Get the deleted id for all of the deletes of the folder:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tf dir /recursive /deleted /slotmode $/project/trunk. </span></code></pre></td></tr></table></div></figure>
+
+
+<p>This gives output like:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$/project/trunk:
+</span><span class='line'>$Build
+</span><span class='line'>$Configs
+</span><span class='line'>$Databases
+</span><span class='line'>$Deploy
+</span><span class='line'>$Docs
+</span><span class='line'>$External
+</span><span class='line'>$Folder
+</span><span class='line'>$Folder;X246937
+</span><span class='line'>$Folder;X246938</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In our case, there are three entries for $Folder, two with deleted ids, and the one folder that has not been deleted (the last add).
+Destroy the deleted folders by using their deleted ids.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tf destroy /preview $/ijv/trunk/folder;X246937</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Adding the /preview argument let&#8217;s you confirm what would be done when issuing the destroy command. After you review the output and make sure you&#8217;re not destroying something you don&#8217;t mean to, remove the /preview and run the command.</p>
+
+<p>Then we run it for the other deleted id:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tf destroy /preview $/ijv/trunk/folder;X246938</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Finally, do the merge from the trunk back into the project branch.
+That resolved the issue for us. We lost the history of the original two versions of that folder, but it did allow us to move forward with merging. Hopefully this information will help someone when trying to resolve the same issue.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[My love affair with WinDbg (or high CPU utilization in ASP.Net and the runaway iterator)]]></title>
+    <link href="http://gravitypad.github.com/blog/2010/05/26/my-love-affair-with-windbg-or-high-cpu-utilization-in-asp-dot-net-and-the-runaway-iterator/"/>
+    <updated>2010-05-26T00:00:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2010/05/26/my-love-affair-with-windbg-or-high-cpu-utilization-in-asp-dot-net-and-the-runaway-iterator</id>
+    <content type="html"><![CDATA[<p>A while back I attended a “Debugging .Net Applications” course taught by John Robbins from Wintellect. I loved the course and ever since I’ve grown more and more fond of WIndbg. I absolutely love how it can quickly take an issue and lead you to the core problem.
+A few weeks ago, we noticed in one of our pre-production environments incrementally increasing CPU utilization in our ASP.Net application:</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/windbg/1.jpg" alt="" /></p>
+
+<p>Key:
+* Proc - green
+* %GC - purple
+* Requests per second - blue
+* Avg request time - red</p>
+
+<p>Windbg works best if you have a hypothesis that you want to test. We had a few theories. Our best theory was that we had a process that gets into an infinite loop, and each time it does, it maxes another processor core (these are 8 core servers). We expected IIS to protect us from runaway requests, and if there really was an infinite loop, why weren’t we seeing a StackOverflowException, but this was still our best guess. We set out to test it.</p>
+
+<p>First, we captured a dump by attaching Windbg to the apppool running our application. Find the process id for the app pool of interest:</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/windbg/2.png" alt="" /></p>
+
+<p>Then attach WinDbg to the process:</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/windbg/3.png" alt="" /></p>
+
+<p>Then, get the dump from Windbg by issuing</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.dump /ma /u e:\dumps\highCpu</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This will create a dump file with a timestamp on the file name containing all the information we need to debug both native and managed code. We could also just do the debugging while we are attached the process, but I wanted to copy the dump off to another machine to do the analysis. Now, in Windbg, load up the dump file and psscor2:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>.load psscor2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The first command I ran was !runaway. !runaway tells us the time spent by each of the processes threads executing user mode code. You can pass additional parameters to show time spent in kernel mode as well, but for this case, we’re only interested in user mode. The time reported is the time spent executing code since the thread was created. Here is the top of the results:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>0:073&gt; !runaway
+</span><span class='line'>User Mode Time
+</span><span class='line'>Thread           Time
+</span><span class='line'>33:1724          1 days 16:42:13.985
+</span><span class='line'>39:17d4          1 days 15:00:01.087
+</span><span class='line'>40:1a30          1 days 2:38:40.506
+</span><span class='line'>34:1808          0 days 15:50:55.446
+</span><span class='line'>41:174          0 days 9:35:21.695
+</span><span class='line'>46:260          0 days 8:59:35.480</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The top three threads look interesting. That’s a lot of execution time (in fact, the top thread is almost the entire time since the last deployment). Let’s switch to thread 33 and see what we can find. I’m not including the stack trace here, but running these commands switches to the suspicious thread and shows the clr stack:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>~33s 
+</span><span class='line'>!clrstack</span></code></pre></td></tr></table></div></figure>
+
+
+<p>What I noticed when looking at the stack of the top three threads is that they were all in the same method. Very suspicious! Looking at that method, we found this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">foo</span><span class="p">&gt;</span> <span class="n">GetAncestors</span><span class="p">(</span><span class="n">Foo</span> <span class="n">foo</span><span class="p">,</span> <span class="n">ControllerContext</span> <span class="n">controllerContext</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>   <span class="k">while</span> <span class="p">(</span><span class="n">foo</span><span class="p">.</span><span class="n">ParentId</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
+</span><span class='line'>   <span class="p">{</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">parentId</span> <span class="p">=</span> <span class="n">foo</span><span class="p">.</span><span class="n">ParentId</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+</span><span class='line'>      <span class="n">foo</span> <span class="p">=</span> <span class="n">controllerContext</span><span class="p">.</span><span class="n">GetFoo</span><span class="p">(</span><span class="n">parentId</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">foo</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>         <span class="k">yield</span> <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">yield</span> <span class="k">return</span> <span class="n">foo</span><span class="p">;</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>   <span class="k">yield</span> <span class="k">break</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If there was a circular reference in a chain of Foo’s, we’d never exit this loop. The fix turned out to be easy. We keep track of which ancestors we’ve already returned, and if we come across the same one twice, we throw:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">private</span> <span class="k">static</span> <span class="n">IEnumerable</span><span class="p">&lt;</span><span class="n">foo</span><span class="p">&gt;</span> <span class="n">GetAncestors</span><span class="p">(</span><span class="n">Foo</span> <span class="n">foo</span><span class="p">,</span> <span class="n">ControllerContext</span> <span class="n">controllerContext</span><span class="p">)</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>   <span class="kt">var</span> <span class="n">ancestorIds</span> <span class="p">=</span> <span class="k">new</span> <span class="n">HashSet</span><span class="p">&lt;</span><span class="kt">int</span><span class="p">&gt;();</span>
+</span><span class='line'>
+</span><span class='line'>   <span class="k">while</span> <span class="p">(</span><span class="n">foo</span><span class="p">.</span><span class="n">ParentId</span><span class="p">.</span><span class="n">HasValue</span><span class="p">)</span>
+</span><span class='line'>   <span class="p">{</span>
+</span><span class='line'>      <span class="kt">int</span> <span class="n">parentId</span> <span class="p">=</span> <span class="n">foo</span><span class="p">.</span><span class="n">ParentId</span><span class="p">.</span><span class="n">Value</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">ancestorIds</span><span class="p">.</span><span class="n">Contains</span><span class="p">(</span><span class="n">parentId</span><span class="p">))</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>      <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidOperationException</span><span class="p">(</span>
+</span><span class='line'>         <span class="kt">string</span><span class="p">.</span><span class="n">Format</span><span class="p">(</span>
+</span><span class='line'>         <span class="s">&quot;There is a circular reference in the ancestors of Foo &#39;{0}&#39;.&quot;</span><span class="p">,</span>
+</span><span class='line'>         <span class="n">foo</span><span class="p">.</span><span class="n">Id</span><span class="p">));</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="n">foo</span> <span class="p">=</span> <span class="n">controllerContext</span><span class="p">.</span><span class="n">GetFoo</span><span class="p">(</span><span class="n">parentId</span><span class="p">,</span> <span class="k">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">foo</span> <span class="p">==</span> <span class="k">null</span><span class="p">)</span>
+</span><span class='line'>      <span class="p">{</span>
+</span><span class='line'>         <span class="k">yield</span> <span class="k">break</span><span class="p">;</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">yield</span> <span class="k">return</span> <span class="n">foo</span><span class="p">;</span>
+</span><span class='line'>   <span class="p">}</span>
+</span><span class='line'>   <span class="k">yield</span> <span class="k">break</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The investigation took all of about 15 minutes, the code fix about 10 minutes more, testing and deployed all in 5 hours. Windbg is quickly becoming one of my favorite debugging tools!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Reclaiming disk space from Outlook OST files]]></title>
+    <link href="http://gravitypad.github.com/blog/2010/02/09/reclaiming-disk-space-from-outlook-ost-files/"/>
+    <updated>2010-02-09T00:00:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2010/02/09/reclaiming-disk-space-from-outlook-ost-files</id>
+    <content type="html"><![CDATA[<p>I recently received a warning for Windows telling me I was dangerously low on disk space on my laptop’s C: partition. I intentionally don’t put a lot on my C: because I like to be able to pave my machine’s OS frequently without having to worry about backing up my data, so my C: partition usually only has the OS and applications. I have 40 GB dedicated to my C: partition, and I have never bumped up against any space constratints.</p>
+
+<p>I ran <a href="http://windirstat.info">WinDirStat</a> to see what was taking up so much space. Aside from the usual suspects (pagefile.sys and hiberfil.sys), I saw two large files, below in green (the two reds are pagefile.sys and hiberfil.sys)</p>
+
+<p><img src="http://gravitypad.github.com/images/posts/outlook/1.jpg" alt="" /></p>
+
+<p>Turns out they are two OST files connected to my two Exchange accounts (Outlook 2010 lets you have multiple Exchange accounts in a single profile - very cool!). Each OST was using over 10 GB of space! I frequently archive my mail to PST files (located on another partition), so I was surprised the OST’s were so big.
+The solution was to compress the OST files. I had forgotten that you can compress not only PSTs but also OSTs. Here’s the steps: (Again, this is Outlook 2010. Previous version may be slightly different.)</p>
+
+<ol>
+<li>Close Outlook.</li>
+<li>Open the Mail control panel applet.</li>
+<li>Click the Data Files button.</li>
+<li><p>Select the file associated with your Exchange account. It’s named with your default email address.</p>
+
+<p> <img src="http://gravitypad.github.com/images/posts/outlook/2.jpg" alt="" /></p></li>
+<li><p>Next, click the Outlook Data File Settings button.</p>
+
+<p> <img src="http://gravitypad.github.com/images/posts/outlook/3.jpg" alt="" /></p></li>
+<li><p>Finally, click Compact Now. Sit back and wait - It takes a while. For my 10GB file, which compressed down to about 5GB, it took about 3 hours.
+ <img src="http://gravitypad.github.com/images/posts/outlook/4.jpg" alt="" /></p></li>
+</ol>
+
+
+<p>I was able to quickly reclaim 11GB of disk space on my C: partition by compressing my OST files. Hopefully this will help someone else with the same predicament!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Subversion error: Could not read status line: Connection was closed by server]]></title>
+    <link href="http://gravitypad.github.com/blog/2010/01/23/subversion-error-could-not-read-status-line-connection-was-closed-by-server/"/>
+    <updated>2010-01-23T11:00:00-08:00</updated>
+    <id>http://gravitypad.github.com/blog/2010/01/23/subversion-error-could-not-read-status-line-connection-was-closed-by-server</id>
+    <content type="html"><![CDATA[<p>I&#8217;ve recently setup a local Subversion server for a project I&#8217;m working on with some other guys. It took a bit of convincing that having multiple developers on a project requires a source control system. Prior to the past few months, there&#8217;s only been one developer working on the project (for the past 18 years!), so they&#8217;ve never needed version control. OK, well, they didn&#8217;t <em>think</em> they needed version control. Version control was simply making a copy of the folder before you start making changes.</p>
+
+<p>I&#8217;ve not worked with Subversion much in the past, but it was super-simple to setup and get <a href="http://www.visualsvn.com">VisualSVN</a> installed and running (thanks Scott Hanselman for the <a href="http://www.hanselman.com/blog/RunningASubversionServerOffYourWindowsHomeServer.aspx">tips</a>!).</p>
+
+<p>Anyway, I&#8217;ve been using the repository here locally via TortoiseSVN without any issues at all. I sent the connection instructions to the other guys and one of them called today saying he received an error when trying to enlist in the repository:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Could not read status line: Connection was closed by server. </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Ugh, I thought. Since I don&#8217;t have a lot of Subversion experience, I thought I was up against some obscure issue that would take a long time to figure out. Turns out the solution was quite simple: he was attempting to connect to the server via http, but it only accepts https connections. Putting in the correct protocol solved the problem! I do think the error could be a little more descriptive&#8230;</p>
+]]></content>
+  </entry>
+  
+</feed>

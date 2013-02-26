@@ -1,0 +1,315 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Entity Framework: use properties for your entities - gravitypad.com</title>
+  <meta name="author" content="paul kearney">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="openid.server" href="http://www.myopenid.com/server">
+  <link rel="openid.delegate" href="http://paulkearney.myopenid.com/">
+
+  
+    
+  
+  <meta name="description" content="I’ve been banging my head against what seemed to be a very simple problem. Using the new Entity Framework 4.1, I created a simple entity class: 1
+2 &hellip;">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://gravitypad.github.com/blog/2011/03/31/entity-framework-use-properties-for-your-entities/">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="gravitypad.com" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="gravitypad.com" />
+  <meta name="og:title" content="Entity Framework: use properties for your entities" />
+  <meta name="og:description" content="I’ve been banging my head against what seemed to be a very simple problem. Using the new Entity Framework 4.1, I created a simple entity class: 1
+2 &hellip;" />
+  <meta name="og:url" content="http://gravitypad.github.com/blog/2011/03/31/entity-framework-use-properties-for-your-entities/"/>
+  <meta name="url" content="http://gravitypad.github.com/blog/2011/03/31/entity-framework-use-properties-for-your-entities/">
+  
+  <meta name="subject" content=""/>
+  <meta name="category" content=""/>
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <nav role="navigation"><div class="navbar">
+  <div class="navbar-inner">
+    <a class="brand" href="/">gravitypad.com</a>
+    <ul class="nav">
+      <li><a href="/">Home</a></li>
+      <li><a href="/blog/archives">Archives</a></li>
+    </ul>
+    <ul class="nav" data-subscription="rss">
+      <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+      
+    </ul>
+      
+    <form class="navbar-form" action="http://google.com/search" method="get">
+      <fieldset role="search">
+        <input type="hidden" name="q" value="site:gravitypad.github.com" />
+        <input class="span2" type="text" name="q" results="0" placeholder="Search"/>
+      </fieldset>
+    </form>
+      
+    
+  </div>
+</div>
+</nav>
+  <div class="wrapper_single">
+    <div class="container">
+      <article class="span8 offset2" role="article">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title">Entity Framework: Use Properties for Your Entities</h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-31T00:00:00-07:00" pubdate data-updated="true">Mar 31<span>st</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I’ve been banging my head against what seemed to be a very simple problem. Using the new Entity Framework 4.1, I created a simple entity class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ElectricityMeasurement</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Kwh</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Volts</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">long</span> <span class="n">Ticks</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I kept getting an error complaining about no key being set for the entity:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Entity</span><span class="p">.</span><span class="n">ModelConfiguration</span><span class="p">.</span><span class="n">ModelValidationException</span> <span class="p">:</span>
+</span><span class='line'><span class="n">One</span> <span class="n">or</span> <span class="n">more</span> <span class="n">validation</span> <span class="n">errors</span> <span class="n">were</span> <span class="n">detected</span> <span class="n">during</span> <span class="n">model</span> <span class="n">generation</span><span class="p">:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Edm</span><span class="p">.</span><span class="n">EdmEntityType</span><span class="p">:</span> <span class="p">:</span> <span class="n">EntityType</span> <span class="err">&#39;</span><span class="n">ElectricityMeasurement</span><span class="err">&#39;</span>
+</span><span class='line'><span class="n">has</span> <span class="n">no</span> <span class="n">key</span> <span class="n">defined</span><span class="p">.</span> <span class="n">Define</span> <span class="n">the</span> <span class="n">key</span> <span class="k">for</span> <span class="k">this</span> <span class="n">EntityType</span><span class="p">.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Edm</span><span class="p">.</span><span class="n">EdmEntitySet</span><span class="p">:</span> <span class="n">EntityType</span><span class="p">:</span> <span class="n">The</span> <span class="n">EntitySet</span> <span class="n">ElectricityMeasurements</span>
+</span><span class='line'><span class="k">is</span> <span class="n">based</span> <span class="n">on</span> <span class="n">type</span> <span class="n">ElectricityMeasurement</span> <span class="n">that</span> <span class="n">has</span> <span class="n">no</span> <span class="n">keys</span> <span class="n">defined</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But Entity Framework has conventions that should pick up the Id as the key? I even added a [Key] attribute to that property with no luck. Then it hit me: Entity Framework works with properties, not variables:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ElectricityMeasurement</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Kwh</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Volts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">long</span> <span class="n">Ticks</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And all is well.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-31T00:00:00-07:00" pubdate data-updated="true">Mar 31<span>st</span>, 2011</time>
+      
+
+
+    </p>
+    
+      <a class="pull-left" href="/blog/2011/03/15/a-thank-you-from-caleb-and-the-st-baldricks-foundation/" title="Previous Post: A thank you from Caleb and the St. Baldrick’s Foundation">&laquo; A thank you from Caleb and the St. Baldrick’s Foundation</a>
+    
+    
+      <a class="pull-right" href="/blog/2011/04/04/dasblog-fixing-404s-for-mapped-urls/" title="Next Post: DasBlog: Fixing 404’s for mapped urls">DasBlog: Fixing 404’s for mapped urls &raquo;</a>
+    
+  </footer>
+
+</div>
+
+
+      </article>
+    </div>
+    <div class="container">	
+      
+    </div>
+  </div>
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2013/01/28/moving-from-dasblog-to-octopress-and-jekyll/">Moving from dasBlog to Octopress/Jekyll</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/01/26/hello-world/">hello world</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2012/06/04/powershell-authorizationmanager-check-failed/">Powershell AuthorizationManager check failed</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2011/12/02/waze/">waze</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2011/11/30/remember-controller-classes-need-to-be-public/">Remember, controller classes need to be public</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+
+  </div>
+  <div class="span2">
+    <h2>found on</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/">gravitypad.com</a>
+  - Copyright &copy; 2013 - paul kearney
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+    <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span>
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/javascripts/custom.js" type="text/javascript"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,1 +1,898 @@
-My Octopress Page is coming soon &hellip;
+
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>gravitypad.com</title>
+  <meta name="author" content="paul kearney">
+  <link rel="author" href="humans.txt">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="openid.server" href="http://www.myopenid.com/server">
+  <link rel="openid.delegate" href="http://paulkearney.myopenid.com/">
+
+  
+    
+  
+  <meta name="description" content=" ">
+  
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://gravitypad.github.com/">
+  <link href="/favicon.png" rel="icon">
+  <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="gravitypad.com" type="application/atom+xml">
+  <meta name="og:type" content="website" />
+  <meta name="og:site_name" content="gravitypad.com" />
+  <meta name="og:title" content="gravitypad.com" />
+  <meta name="og:description" content=" " />
+  <meta name="og:url" content="http://gravitypad.github.com/index.html"/>
+  <meta name="url" content="http://gravitypad.github.com/index.html">
+  
+  <meta name="distribution" content="global">
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <div id="front-wrapper">
+  <div id="hero">
+    <div id="hero-inner" class="container">
+      <div class="span10 offset1">
+  <h1>
+    hi, i&#8217;m <em>paul kearney</em>
+  </h1>
+  <h2>
+  	a .net developer/architect, technologist, and all around good guy
+  </h2>
+</div>
+
+    </div>
+  </div>
+  <section id="sub-hero">
+    <div class="container">
+      <div class="row">
+  <div class="span4">
+    <h2>about me</h2>
+<p>Been doing software development since the 1900&#8217;s. 
+<a href="/about-me/index.html">Read more&#8230;</a></p>
+  </div>
+  <div class="span8">
+      <h1>popular posts</h1>
+  <ul id="popular_posts">
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+      <li class="post">
+        <a href="/blog/2010/09/03/resolving-tfs-error-tf14087-cannot-undelete-x-because-not-all-of-the-deletion-is-being-undeleted/">Resolving TFS error TF14087: Cannot undelete X because not all of the deletion is being undeleted</a>
+      </li>
+      
+    
+      
+      <li class="post">
+        <a href="/blog/2010/05/26/my-love-affair-with-windbg-or-high-cpu-utilization-in-asp-dot-net-and-the-runaway-iterator/">My love affair with WinDbg (or high CPU utilization in ASP.Net and the runaway iterator)</a>
+      </li>
+      
+    
+      
+      <li class="post">
+        <a href="/blog/2010/02/09/reclaiming-disk-space-from-outlook-ost-files/">Reclaiming disk space from Outlook OST files</a>
+      </li>
+      
+    
+      
+    
+  </ul>
+
+  </div>
+</div>
+
+    </div>
+  </section>
+  <div class="container">
+    <div class="row" id="post-container">
+    
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/28/moving-from-dasblog-to-octopress-and-jekyll/">Moving From dasBlog to Octopress/Jekyll</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-28T07:39:00-08:00" pubdate data-updated="true">Jan 28<span>th</span>, 2013</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&#8217;ve decided to move this blog away from dasBlog and over to another platform, <a href="https://github.com/mojombo/jekyll">Jekyll</a>. Jekyll is a static site generator - you create your posts as markdown files, run a command, and it generates all of the files for your blog as static html files.</p>
+
+<p>Why move away from something more robust? Well, I&#8217;m not convinced it was more robust, and it added a lot of complexity to hosting it. Here&#8217;s my reasoning:</p>
+
+<ul>
+<li>dasBlog requires a Windows server. I could host it somewhere pretty cheap, but with as much as I&#8217;ve written on this blog (more on that later), I really can&#8217;t justify spending money on hosting if I could do it for free.</li>
+<li>Jekyll requires no databases, no write permissions to the server, no logins&#8230; It&#8217;s just a static site. Content is written on my laptop, static files are generated and then pushed to the server.</li>
+<li>Jekyll is the engine behind GitHub Pages. That&#8217;s pretty cool. And you can host your Jekyll blog on GitHub pages for free.</li>
+<li>I considered other blogging platforms, like WordPress, Movable Type, BlogEngine.Net, etc. They all have a host of great features. But in the end I don&#8217;t really need them. Minimal Viable Blog.</li>
+</ul>
+
+
+<p>Another key reason for me personally is it allows me to learn some new technology that I&#8217;m unfamiliar with. Getting to look under the covers at the Ruby code driving Jekyll and making modificaitons is a fun learning experience.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/01/28/moving-from-dasblog-to-octopress-and-jekyll/">Read on &rarr;</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/01/26/hello-world/">Hello World</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-26T21:47:00-08:00" pubdate data-updated="true">Jan 26<span>th</span>, 2013</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Every new blog needs one.</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2012/06/04/powershell-authorizationmanager-check-failed/">Powershell AuthorizationManager Check Failed</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2012-06-04T00:00:00-07:00" pubdate data-updated="true">Jun 4<span>th</span>, 2012</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>While debugging some Powershell scripts today, I started getting an error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>AuthorizationManager check failed.
+</span><span class='line'>At C:\Users\pkearne\setupPLT.ps1:6 char:14
+</span><span class='line'>+ ./logging.ps1 &lt;&lt;&lt;&lt;
+</span><span class='line'>    + CategoryInfo      : NotSpecified: (:) [], PSSecurityException
+</span><span class='line'>    + FullyQualifiedErrorId : RuntimeException</span></code></pre></td></tr></table></div></figure>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2012/06/04/powershell-authorizationmanager-check-failed/">Read on &rarr;</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/12/02/waze/">Waze</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-12-02T00:00:00-08:00" pubdate data-updated="true">Dec 2<span>nd</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>A few days back on a DL I frequent, someone asked for a better traffic mobile app. The thread piqued my interest, but I really thought it would be a rehash of all the known apps out there.</p>
+
+<p>You see, I commute 25.6 miles to work. Each way. And it’s right through the middle of Seattle traffic. In 2010 Seattle ranked #10 in the nation for the worst congestion. On a good day during commute hours it will take me about 1:15 to get to work. On a bad day it can be more like 1:45. As you can see, I spend a lot of time in the car. <em>(I’ve also experimented with the Connector, Microsoft’s employee bus service, carpooling, and the Metro bus. There’s a few reasons I choose to still drive, but that’s not important right now).</em></p>
+
+<p>There were a few replies to the thread suggesting traffic apps: Google Maps, the Washington DOT app, bla bla bla. The problem is they are all terrible. Horrible. They show you traffic, but they don’t help you make any intelligent decisions about which route to take (I have three routes I can take). And they never seem to be accurate enough. There’s plenty of times I’ve been stopped in traffic while Google maps happily shows the road I am on as yellow (meaning slow, but not stopped).</p>
+
+<p>One app was mentioned that I had not heard of before: <a href="http://www.waze.com">Waze</a>. The idea behind it is pretty brilliant – crowd sourced traffic. They are not the first to do it, but they’ve built a pretty cool app around the concept.</p>
+
+<p><img src="/images/posts/waze/1.png" alt="" /></p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/12/02/waze/">Read on &rarr;</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/11/30/remember-controller-classes-need-to-be-public/">Remember, Controller Classes Need to Be Public</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-11-30T00:00:00-08:00" pubdate data-updated="true">Nov 30<span>th</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>File this one under Duh! I was troubleshooting a routing issue I was having with a portable area in ASP.Net MVC. For some reason I kept getting a 404. The solution was pretty big, so I created two new projects to try and isolate the problem.</p>
+
+<p>I created a new web project and a class library for the portable area. Added my routes to the area, created a new class, renamed the class MyController, wired it all up, and got the same thing.</p>
+
+<p>I installed Glimpse to see what routes were being hit. But Glimpse only works if ASP.Net handles the request, and since it was a 404, I couldn’t see the Glimpse data.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2011/11/30/remember-controller-classes-need-to-be-public/">Read on &rarr;</a>
+    </footer>
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/05/13/verificationexception-operation-could-destabilize-the-runtime/">VerificationException: Operation Could Destabilize the Runtime</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-13T00:00:00-07:00" pubdate data-updated="true">May 13<span>th</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I came across this exception this morning while playing with RavenDB. A quick search shows several people have seen this exception but not a lot of solutions.</p>
+
+<p>I&#8217;m not sure why, but this exception in my case was related to IntelliTrace. I turned IntelliTrace off and the exception went away. Weird.</p>
+
+<p>BTW - this isn&#8217;t related to RavenDB.   According to <a href="http://blogs.msdn.com/b/jnak/archive/2010/07/22/verificationexception-from-windows-azure-intellitrace.aspx">this post</a>, the issue is a bug in IntelliTrace.</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/05/11/vb6-and-net-interop-fun/">VB6 and .Net Interop Fun</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-05-11T00:00:00-07:00" pubdate data-updated="true">May 11<span>th</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p> A friend of a friend asked me to help with a project. He is a VB6 developer. Still. But he needed to incorporate a .Net component into the VB6 application in an easy way. So I&#8217;ve been helping him out, building up a .Net control using the Microsoft Interop Toolkit. It&#8217;s a free add-in to Visual Studio that takes away a lot of the complexities in building COM interop components in .Net.</p>
+
+<p>I learned something painfully recently while helping out:</p>
+
+<p>If your .Net control throws an exception, VB6 will report that to you as  an &#8220;out of memory&#8221; error. That&#8217;s it - no details, call stack, or anything else about the actual exception. Misleading and frustrating. Not that I would expect VB6 to give me the call stack from .Net, but &#8220;out of memory&#8221; is not only unhelpful but it is disinformation.</p>
+
+<p>I should have remebered this one. We were getting the &#8220;out of memory&#8221; error in VB6 in design mode and couldn&#8217;t figure out what the problem was. The error popped up immediately when opening the form designer in VB6. After much trouble trying to get VB6 to actually tell us what the problem is (we never got any information out of it, even after enhanced interrogation using WinDbg), it was real simple - we had a bug in a property setter. When the control was instantiated, VB6 was calling the setter, getting the exception, and then barfing with the incredibly unhelpful error message.</p>
+
+<p>My friends will inevitably laugh and make fun of me for playing with VB6 still. That&#8217;s fine. I&#8217;ve found the experience has led me to develop additional skills and learn more about .Net development along the way.</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/04/29/principles-vs-methods-in-software-development/">Principles vs. Methods in Software Development</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-29T00:00:00-07:00" pubdate data-updated="true">Apr 29<span>th</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I just posted on our Development@msnbc blog some thoughts on Ralph Waldo Emerson&#8217;s quote and it&#8217;s applicability to software development.</p>
+
+<blockquote><p>As to methods there may be a million and then some, but principles are few. The man who grasps principles can successfully select his own methods. The man who tries methods, ignoring principles, is sure to have trouble.</p>
+
+<p>- Ralph Waldo Emerson (1803-1882)</p></blockquote>
+
+<p>Give it a read at <a href="http://development.msnbc.msn.com/_news/2011/04/29/6406331-principles-vs-methods">here</a> and let me know what you think!</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/04/04/dasblog-fixing-404s-for-mapped-urls/">DasBlog: Fixing 404’s for Mapped Urls</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-04-04T00:00:00-07:00" pubdate data-updated="true">Apr 4<span>th</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Two things have been bugging me since I migrated this blog over to dasBlog: I started getting a bunch of 404 errors for urls that are mapped to dasBlog handlers, and getting a better html editor wasn’t working.</p>
+
+<h4>404’s for things like deleteitem.aspx, blogger.aspx, etc.</h4>
+
+<p>This fix was simple. I am running this site on Windows Server 2008 R2, and the application pool was in Integrated Mode. Switching to Classic Mode got all of the handler mappings working. I’ll need to dig around in the web.config to get the handlers migrated to IIS7.5 syntax so I can go back to Integrated Mode. This fix also got comments working.</p>
+
+<h4>Setting TinyMCE as the editor</h4>
+
+<p>I had downloaded the TinyMCE editor adapter from John Forsythe, but it never worked. There seemed to be people with similar issues, but no resolution. This was even worse for me, because since I was getting 404’s for blogger.aspx, I couldn’t use Windows Live Writer either. I resorted to handcrafting my html. Yuck.
+This one was simple to fix, but I didn’t figure it out until I installed the wonderful ELMAH. Looking at the Elmah logs showed this error:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tinymce\jscripts\tiny_mce\tiny_mce_gzip.aspx(5): error CS0246: The type or namespace name 'ICSharpCode' could not be found (are you missing a using directive or an assembly reference?)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>In the installation instructions, it said that you don’t need to install the ICSharpCode.SharpZipLib.dll, because it’s the same one installed with dasBlog. But the version of dasBlog I was running didn’t have that assembly. A quick search and download, and voilla – TinyMCE is working!</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    
+      <article class="span12">
+        <div class="article-format">
+
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2011/03/31/entity-framework-use-properties-for-your-entities/">Entity Framework: Use Properties for Your Entities</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+
+  
+    <span class="byline author vcard">by <span class="fn">paul kearney</span></span>
+  
+
+ - 
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2011-03-31T00:00:00-07:00" pubdate data-updated="true">Mar 31<span>st</span>, 2011</time> - 
+        
+
+
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I’ve been banging my head against what seemed to be a very simple problem. Using the new Entity Framework 4.1, I created a simple entity class:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ElectricityMeasurement</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Kwh</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Volts</span><span class="p">;</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">long</span> <span class="n">Ticks</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>I kept getting an error complaining about no key being set for the entity:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Entity</span><span class="p">.</span><span class="n">ModelConfiguration</span><span class="p">.</span><span class="n">ModelValidationException</span> <span class="p">:</span>
+</span><span class='line'><span class="n">One</span> <span class="n">or</span> <span class="n">more</span> <span class="n">validation</span> <span class="n">errors</span> <span class="n">were</span> <span class="n">detected</span> <span class="n">during</span> <span class="n">model</span> <span class="n">generation</span><span class="p">:</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Edm</span><span class="p">.</span><span class="n">EdmEntityType</span><span class="p">:</span> <span class="p">:</span> <span class="n">EntityType</span> <span class="err">&#39;</span><span class="n">ElectricityMeasurement</span><span class="err">&#39;</span>
+</span><span class='line'><span class="n">has</span> <span class="n">no</span> <span class="n">key</span> <span class="n">defined</span><span class="p">.</span> <span class="n">Define</span> <span class="n">the</span> <span class="n">key</span> <span class="k">for</span> <span class="k">this</span> <span class="n">EntityType</span><span class="p">.</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">System</span><span class="p">.</span><span class="n">Data</span><span class="p">.</span><span class="n">Edm</span><span class="p">.</span><span class="n">EdmEntitySet</span><span class="p">:</span> <span class="n">EntityType</span><span class="p">:</span> <span class="n">The</span> <span class="n">EntitySet</span> <span class="n">ElectricityMeasurements</span>
+</span><span class='line'><span class="k">is</span> <span class="n">based</span> <span class="n">on</span> <span class="n">type</span> <span class="n">ElectricityMeasurement</span> <span class="n">that</span> <span class="n">has</span> <span class="n">no</span> <span class="n">keys</span> <span class="n">defined</span><span class="p">.</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But Entity Framework has conventions that should pick up the Id as the key? I even added a [Key] attribute to that property with no luck. Then it hit me: Entity Framework works with properties, not variables:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='c#'><span class='line'><span class="k">public</span> <span class="k">class</span> <span class="nc">ElectricityMeasurement</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">int</span> <span class="n">Id</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Kwh</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">float</span> <span class="n">Volts</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'>    <span class="k">public</span> <span class="kt">long</span> <span class="n">Ticks</span> <span class="p">{</span> <span class="k">get</span><span class="p">;</span> <span class="k">set</span><span class="p">;</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And all is well.</p>
+</div>
+  
+  
+
+
+</div>
+
+      </article>
+    
+    </div>
+      <div class="row">
+        <ul class="pager">
+          
+            <li class="previous">
+              <a href="/blog/page/2/">&larr; Older</a>
+            </li>
+          
+          
+        </ul>
+      </div>
+  </div>
+</div>
+
+
+  <div id="footer-widgets">
+  <div class="container">
+    <div class="row">
+  <div class="span3">
+    <h2>recent posts</h2>
+    <ul class="recent_posts">
+      
+        <li>
+          <a href="/blog/2013/01/28/moving-from-dasblog-to-octopress-and-jekyll/">Moving from dasBlog to Octopress/Jekyll</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2013/01/26/hello-world/">hello world</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2012/06/04/powershell-authorizationmanager-check-failed/">Powershell AuthorizationManager check failed</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2011/12/02/waze/">waze</a>
+        </li>
+      
+        <li>
+          <a href="/blog/2011/11/30/remember-controller-classes-need-to-be-public/">Remember, controller classes need to be public</a>
+        </li>
+      
+    </ul>
+    <h2><a href="/blog/archives">archives</a></h2>
+  </div>
+  <div class="span3">
+    
+
+  </div>
+  <div class="span4">
+    
+
+  </div>
+  <div class="span2">
+    <h2>found on</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+</div>
+
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-left">
+  <a href="/">gravitypad.com</a>
+  - Copyright &copy; 2013 - paul kearney
+</p>
+<p class="pull-right">
+  <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
+  
+    <span>Designed by <a href="http://www.AdrianArtiles.com">Adrian Artiles</a>.</span>
+  
+</p>
+
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/libs/jquery-1.7.2.min.js" type="text/javascript"><\/script>')</script>
+<script src="/javascripts/libs/bootstrap.min.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.tweet.js" type="text/javascript"></script>
+<script src="/javascripts/jquery.instagram.js" type="text/javascript"></script>
+<script src="/javascripts/libs/jquery.masonry.min.js" type="text/javascript"></script>
+<script src="/javascripts/custom.js" type="text/javascript"></script>
+
+
+
+
+
+</body>
+</html>
