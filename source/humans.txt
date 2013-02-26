@@ -3,9 +3,9 @@
 
 
 /* TEAM */
-  Owner: Adrian Artiles
-  Site: http://AdrianArtiles.com
-  Twitter: @AdrianArtiles
+  Owner: Paul Kearney
+  Site: http://gravitypad.com
+  Twitter: @pkdotnet
 
   UX Designer: Adrian Artiles
   Site: http://AdrianArtiles.com

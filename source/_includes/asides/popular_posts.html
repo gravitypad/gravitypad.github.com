@@ -1,0 +1,10 @@
+  <h1>popular posts</h1>
+  <ul id="popular_posts">
+    {% for post in site.posts %}
+      {% if post.popular == true %}
+      <li class="post">
+        <a href="{{ root_url }}{{ post.url }}">{{ post.title }}</a>
+      </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
