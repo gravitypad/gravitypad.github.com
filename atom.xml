@@ -4,7 +4,7 @@
   <title><![CDATA[gravitypad.com]]></title>
   <link href="http://gravitypad.github.com/atom.xml" rel="self"/>
   <link href="http://gravitypad.github.com/"/>
-  <updated>2013-02-25T18:44:10-08:00</updated>
+  <updated>2013-04-08T11:57:28-07:00</updated>
   <id>http://gravitypad.github.com/</id>
   <author>
     <name><![CDATA[paul kearney]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Metacrawler.com, now in the cloud]]></title>
+    <link href="http://gravitypad.github.com/blog/2013/04/08/metacrawler-dot-com-now-in-the-cloud/"/>
+    <updated>2013-04-08T11:47:00-07:00</updated>
+    <id>http://gravitypad.github.com/blog/2013/04/08/metacrawler-dot-com-now-in-the-cloud</id>
+    <content type="html"><![CDATA[<p>Not much to really see (it all looks the same), but a few weeks ago we migrated <a href="http://metacrawler.com">MetaCrawler</a> to Amazon Web Services. All systems are go and working smoothly. We also moved several InfoSpace API partners into our AWS infrastructure, and we&#8217;ve been adding more and more every week. We&#8217;re quite pleased with the performance so far, both from a compute as well as network latency perspective. One of the great things we did in this project was to rethink the metrics we gather from our application. We&#8217;re collecting some great data that is providing rich insight into our application&#8217;s behavior. It&#8217;s great to see something happen, formulate a theory on why, and then use data to confirm (or reject) the theory.</p>
+
+<p>For our metrics gathering, we are using <a href="https://github.com/etsy/statsd">StatsD</a> and <a href="https://github.com/graphite-project">Graphite</a>. These are great tools that let us add custom metrics to our applications and instances without a lot of fanfare. We&#8217;ve also built some custom tooling around metrics alerting and dashboards, but we&#8217;re continuing to investigate some third-party apps to compliment our work in this space.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Moving from dasBlog to Octopress/Jekyll]]></title>
